@@ -1,0 +1,54 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1beta3",
+    "metadata": {
+        "name": "testvolum",
+        "labels": {
+            "name": "testvolum"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "testvolum"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "testvolum"
+                }
+            },
+            "spec": {
+                "nodeSelector": {
+                    "ip": "10.10.103.88"
+                },
+                "containers": [
+                    {
+                        "name": "testvolum",
+                        "image": "7-jre-customize",
+                        "volumeMounts": [
+                            {
+                                "mountPath": "/usr/local/tomcat/webapps/",
+                                "name": "iscsipd-ro"
+                            }
+                        ],
+                        "ports": [
+                            {
+                                "containerPort": 8080,
+                                "protocol": "TCP"
+                            }
+                        ]
+                    }
+                ],
+                "volumes": [
+                    {
+                        "name": "iscsipd-ro",
+                        "hostPath": {
+                            "path": "/home/vcap/logtest"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
