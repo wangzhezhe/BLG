@@ -1,1 +1,13 @@
-test file upload 
+#指定容器暴露出的端口
+EXPOSE 
+#构建好容器之后的初始化操作
+ENTRIPOINT [" "]
+#启动容器的时候要执行的命令
+CMD [" "]
+
+
+
+
+
+
+

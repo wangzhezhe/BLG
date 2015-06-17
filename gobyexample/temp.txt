@@ -1,1 +1,3 @@
 the file which used to test the file command
+the second line
+the third line

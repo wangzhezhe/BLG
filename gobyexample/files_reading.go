@@ -17,6 +17,7 @@ func check(e error) {
 func main() {
 	//this could get the current dir path
 	current_dir, _ := os.Getwd()
+	fmt.Println(current_dir)
 	file_path := current_dir + "/temp.txt"
 
 	//reading file into the memory once time
@@ -64,7 +65,8 @@ func main() {
 	r4 := bufio.NewReader(f)
 	b4, err := r4.Peek(5)
 	check(err)
-	fmt.Println("5 bytes : %s\n", string(b4))
+	//fmt.Println(string(b4))
+	fmt.Printf("5 bytes : %s\n", string(b4))
 
 	//close the file when you are done
 	f.Close()

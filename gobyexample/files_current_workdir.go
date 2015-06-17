@@ -31,4 +31,7 @@ func dir() {
 ///var/folders/fw/8qn9ghz50xsd7h7b7sjjf3wr0000gn/T/go-build334712953/command-line-arguments/_obj/exe
 func main() {
 	dir()
+	//Attention:it's better to show the current work dir by the os.Getwd()
+	workdir, _ := os.Getwd()
+	fmt.Println(workdir)
 }

@@ -26,4 +26,16 @@ func main() {
 	_, prs := m["k2"]
 	fmt.Println("prs", prs)
 
+	newm := make(map[string]string)
+	newm["key1"] = "string1"
+	fmt.Println(newm)
+	newm["key1"] = "string2"
+	fmt.Println(newm)
+	v, ok := newm["key2"]
+	if ok {
+		fmt.Println(v)
+	} else {
+		fmt.Println("non value")
+	}
+
 }

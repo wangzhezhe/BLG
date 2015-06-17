@@ -11,6 +11,7 @@ import (
 var p = fmt.Println
 
 func main() {
+
 	p("Contains: ", s.Contains("test", "es"))
 	p("Count:    ", s.Count("ttest", "t"))
 
@@ -31,6 +32,7 @@ func main() {
 	var str = s.Split("a-b-c-d-e", "-")
 	p(reflect.TypeOf(str))
 	p("Split:    ", str)
+	//大小写转化
 	p("ToLower:  ", s.ToLower("TEST"))
 	p("ToUpper:  ", s.ToUpper("test"))
 
@@ -40,4 +42,25 @@ func main() {
 	p("Char:     ", "hello"[0])
 	p("Char:     ", string("hello"[0]))
 
+	//trim这个是用于除去strings两边的自定义的字符
+	//实际上trim就是分别调用了trim right 和 trim left 两个函数
+	p("trim", s.Trim("\n\n\naaaaaabcd-efgh-aaabcdaaaaa\n\n", "\n"))
+	//当然对应的也有Trimleft和Trimright两个函数 这两个函数的使用方式和Trim相似 连续的字符也可以删除
+	//就是分别去除原来字符串的左边和右边的自定义的字符
+	p("trimleft", s.TrimLeft("aaaaaabcd-efgh-aaabcdaaaaa", "a"))
+	p("trimright", s.TrimRight("aaaaaabcd-efgh-aaabcdaaaaa", "a"))
+
+	//查找字符串中 某个字母出现的位置 位置从0开始往后
+	p("index:", s.Index("sdfgh", "d"))
+
+	//通过改变参数类型 传入一个函数来确定字母的位置
+	p("index:", s.IndexFunc("nihaoma", split)) //3
+
+}
+
+func split(r rune) bool {
+	if r == 'a' {
+		return true
+	}
+	return false
 }

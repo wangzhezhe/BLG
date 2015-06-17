@@ -1,6 +1,7 @@
 package main
 
 import (
+	//	"bytes"
 	"fmt"
 	"log"
 	"os"
@@ -23,5 +24,6 @@ func main() {
 
 	fmt.Println(dir)
 	fmt.Println(os.Getwd())
+	fmt.Println([]byte("<br>"))
 
 }

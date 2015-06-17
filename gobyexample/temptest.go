@@ -38,4 +38,6 @@ func main() {
 	fmt.Println(m["a"])
 	fmt.Println(m["c"])
 
+	//fmt.Println([]byte("Z"))
+
 }

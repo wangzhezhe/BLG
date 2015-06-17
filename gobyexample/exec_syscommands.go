@@ -2,10 +2,35 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"io"
+	"log"
 	"os"
 	"os/exec"
 )
+
+// 这种方式可以动态输出
+func Systemexec(s string) {
+	cmd := exec.Command("/bin/sh", "-c", s)
+	fmt.Println(s)
+	out, err := cmd.StdoutPipe()
+	go func() {
+		o := bufio.NewReader(out)
+		for {
+			line, _, err := o.ReadLine()
+			if err == io.EOF {
+				break
+			} else {
+				fmt.Println(string(line))
+			}
+		}
+	}()
+	err = cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
+}
 
 func main() {
 	f, err := os.OpenFile("test.txt", os.O_CREATE|os.O_WRONLY, 0777)
