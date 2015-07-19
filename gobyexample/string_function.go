@@ -47,8 +47,15 @@ func main() {
 	p("trim", s.Trim("\n\n\naaaaaabcd-efgh-aaabcdaaaaa\n\n", "\n"))
 	//当然对应的也有Trimleft和Trimright两个函数 这两个函数的使用方式和Trim相似 连续的字符也可以删除
 	//就是分别去除原来字符串的左边和右边的自定义的字符
-	p("trimleft", s.TrimLeft("aaaaaabcd-efgh-aaabcdaaaaa", "a"))
-	p("trimright", s.TrimRight("aaaaaabcd-efgh-aaabcdaaaaa", "a"))
+	//注意 trim 的时候 是去掉多个字符 在原字符串中出现过的 cutset中的字符否会被去掉
+	p("trimleft", s.TrimLeft("aaaaaabcd-efaaagh-aaabcdaaaaa", "a"))
+	p("trimright", s.TrimRight("aaaaaabcd-eaaafgh-aaabcdaaaaa", "a"))
+	//比如下面这种形式 本来希望把 -1.1.1 去掉 但是 使用trimright的话会把 apm后面的1也一起去掉
+	p("trimright", s.TrimRight("apm1-1.1.1", "-1.1.1"))
+
+	//要是想完整地去掉原来字符串的头部和尾部的操作 使用
+	p("trimprefix", s.TrimPrefix("aaaaaabcd-efaaagh-aaabcdaaaaa", "aaaaaabcd"))
+	p("trimsuffix", s.TrimSuffix("aaaaaabcd-efaaagh-aaabcdaaaaa", "aaabcdaaaaa"))
 
 	//查找字符串中 某个字母出现的位置 位置从0开始往后
 	p("index:", s.Index("sdfgh", "d"))

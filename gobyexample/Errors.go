@@ -52,4 +52,7 @@ func main() {
 		fmt.Println(ae.arg)
 		fmt.Println(ae.prob)
 	}
+
+	err := errors.New("this is an error")
+	fmt.Println(err)
 }

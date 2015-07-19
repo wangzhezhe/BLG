@@ -20,8 +20,10 @@ func main() {
 	//url := "http://10.211.55.8:8080/v1/testbuild"
 	//url := "http://10.211.55.5:2375/build?dockerfile=temp_test2/Dockerfile"
 	//url := "http://index.docker.io/v1/user"
-	url := "http://10.211.55.10:8082/v1/cdf/"
-	//	url := "http://10.10.105.45:2376/images/testnewimage/tag"
+	//url := "http://10.211.55.10:8082/v1/cdf/"
+	//url := "http://10.10.105.45:2376/images/testnewimage/tag"
+	//url := "http://10.183.47.206:8080"
+	url := "http://www.baidu.com"
 	//body, err := ioutil.ReadFile("./Dockerfileupload/dockerfile1")
 	//if err != nil {
 	//	panic(err)

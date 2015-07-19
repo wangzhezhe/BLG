@@ -1,11 +1,12 @@
+package main
+
 //interfaces is based on methods
 //interfaces are named collection of method signature
 //grouping and naming related sets of methods into interfaces.
-
-package main
-
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 //the contends in interface is the methods without receiver part
 type geometry interface {
@@ -35,7 +36,8 @@ func (c circle) area() float64 {
 }
 
 func (c circle) perim() float64 {
-	return 2 * math.pi * c.radius
+	//	return 2 * math.pi * c.radius
+	return 2
 }
 
 //based on function not class

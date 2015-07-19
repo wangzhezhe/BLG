@@ -22,4 +22,8 @@ func main() {
 		}
 	}
 
+	type testtype []string
+	temp := testtype{}
+	fmt.Println(temp)
+
 }

@@ -19,14 +19,18 @@ func main() {
 
 	//start a new goroutines
 	go func() {
+		//do sth
 		time.Sleep(time.Second * 2)
+		//after excution send info to c1
 		c1 <- "result 1"
 	}()
 
 	select {
 	case res := <-c1:
 		fmt.Println(res)
-	case <-time.After(time.Second * 1):
+		//要是超出了时间 就发送信息给 time.After 这样就相当于超时的操作了
+		//time after返回的本来就是一个channel的类型
+	case <-time.After(time.Millisecond * 1):
 		fmt.Println("time out")
 	}
 
