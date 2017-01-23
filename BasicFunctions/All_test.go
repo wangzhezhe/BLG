@@ -5,5 +5,6 @@ import (
 )
 
 func TestALL(t *testing.T) {
-	JsonBasicOperation()
+	//JsonBasicOperation()
+	//YamlToJson()
 }
