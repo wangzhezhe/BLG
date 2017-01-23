@@ -13,3 +13,7 @@
 ### Components
 
 这一部分是更完整的功能，有的是整理一些比较好的实践，比如日志部分的集中实践方式，参数传入的几种实践方式，webserver的一些特定功能，socket，rpc通信的实现方式等等。
+
+### 参考资源
+
+[awsomego](https://github.com/hackstoic/golang-open-source-projects)汇集了各种各样的golang开源项目
