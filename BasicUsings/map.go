@@ -2,6 +2,10 @@ package BasicUsings
 
 import "fmt"
 
+type Type struct {
+	A int
+}
+
 func MapBasicOperation() {
 
 	//Create and traverse map
@@ -34,11 +38,23 @@ func MapBasicOperation() {
 	newm["key1"] = "string1"
 	fmt.Println(newm)
 
-	//change the value in map
-	//Attention:the addressability of the golang map if the value is the struct type
+	// value in map could not be changed directly
+	//Attention:the addressability of the golang map
 	//refer to https://wangzhezhe.github.io/2017/01/22/golang-map-addressbility/
 	newm["key1"] = "string2"
 	fmt.Println(newm)
+
+	items := make(map[string]*Type)
+	items["q"] = &Type{2}
+	//change the value successfully
+	items["q"].A = 1
+	fmt.Println(items["q"].A)
+
+	itemsb := make(map[string]Type)
+	itemsb["p"] = Type{3}
+	//error will be occured here: cannot take the address of itemsb["p"]
+	//pointer := &itemsb["p"]
+	//fmt.Println(pointer)
 
 	//check the value in map
 	v, ok := newm["key2"]

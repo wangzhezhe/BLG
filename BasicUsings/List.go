@@ -22,7 +22,7 @@ type Element struct {
 func ListBasicOperation() {
 
 	items := list.New()
-	items.MoveToFront()
+	//items.MoveToFront()
 	for _, x := range strings.Split("ABCDEFGH", "") {
 		items.PushFront(x)
 	}

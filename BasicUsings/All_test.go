@@ -6,5 +6,7 @@ import (
 
 func TestALL(t *testing.T) {
 	//MapBasicOperation()
-	StringOperations()
+	//StringOperations()
+
+	InterfaceOperations()
 }

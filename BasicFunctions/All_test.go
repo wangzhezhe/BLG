@@ -7,4 +7,6 @@ import (
 func TestALL(t *testing.T) {
 	//JsonBasicOperation()
 	//YamlToJson()
+	//TimeoutOperation()
+	installSignalHandler()
 }
