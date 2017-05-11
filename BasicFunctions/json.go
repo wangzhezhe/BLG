@@ -109,3 +109,86 @@ func JsonBasicOperation() {
 	//other example is to using the simple json package to marchal only the small part of all json data
 	//http://stackoverflow.com/questions/21432848/go-json-with-simplejson
 }
+
+type Inner struct {
+	Innera string `json:"innera"`
+	Innerb string `json:"innerb"`
+	Innerc string `json:"innerc"`
+}
+
+type OuterA struct {
+	Outera string `json:"outera"`
+	Outerb string `json:"outerb"`
+	Outerc string `json:"outerc"`
+	Inner
+}
+
+type OuterB struct {
+	Outera        string `json:"outera"`
+	Outerb        string `json:"outerb"`
+	Outerc        string `json:"outerc"`
+	Innerinstance Inner  `json:"inner"`
+}
+
+type OuterC struct {
+	Outera        string `json:"outera"`
+	Outerb        string `json:"outerb"`
+	Outerc        string `json:"outerc"`
+	Innerinstance Inner
+}
+
+//more info here(about the valid tag type) attention to the essence of the tag
+//http://stackoverflow.com/questions/10858787/what-are-the-uses-for-tags-in-go
+func EmbedJsonTransfermation() {
+	fmt.Println("show the struct embedying in json transfermation")
+
+	inner := Inner{
+		Innera: "ina",
+		Innerb: "inb",
+		Innerc: "inc"}
+
+	outerA := OuterA{
+		Outera: "oua",
+		Outerb: "oub",
+		Outerc: "ouc",
+		Inner:  inner}
+
+	outerB := OuterB{
+		Outera:        "oua",
+		Outerb:        "oub",
+		Outerc:        "ouc",
+		Innerinstance: inner}
+
+	outerC := OuterC{
+		Outera:        "oua",
+		Outerb:        "oub",
+		Outerc:        "ouc",
+		Innerinstance: inner}
+
+	outerStringa, err := json.Marshal(outerA)
+	if err != nil {
+		fmt.Printf("json error %+v", err)
+	}
+	fmt.Println(string(outerStringa))
+
+	outerStringb, err := json.Marshal(outerB)
+	if err != nil {
+		fmt.Printf("json error %+v", err)
+	}
+	fmt.Println(string(outerStringb))
+
+	outerStringc, err := json.Marshal(outerC)
+	if err != nil {
+		fmt.Printf("json error %+v", err)
+	}
+	fmt.Println(string(outerStringc))
+
+	/*
+		output:
+		   {"outera":"oua","outerb":"oub","outerc":"ouc","innera":"ina","innerb":"inb","innerc":"inc"}
+		   {"outera":"oua","outerb":"oub","outerc":"ouc","inner":{"innera":"ina","innerb":"inb","innerc":"inc"}}
+		   {"outera":"oua","outerb":"oub","outerc":"ouc","Innerinstance":{"innera":"ina","innerb":"inb","innerc":"inc"}}
+
+	*/
+
+}

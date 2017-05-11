@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/BLG/BasicFunctions/util/yaml"
+	"github.com/wangzhezhe/BLG/BasicFunctions/util/yaml"
 	gopkgyaml "gopkg.in/yaml.v2"
 )
 

@@ -7,6 +7,7 @@ type person struct {
 	age  int
 }
 
+//TODO add struct embedding
 //the struct could also include the anonnymous fieds
 type student struct {
 	person
