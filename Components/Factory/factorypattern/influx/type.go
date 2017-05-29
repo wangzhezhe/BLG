@@ -3,7 +3,7 @@ package influx
 import (
 	"fmt"
 
-	"github.com/BLG/Components/Factory/factorypattern/storagetype"
+	"github.com/wangzhezhe/BLG/Components/Factory/factorypattern/storagetype"
 )
 
 type Influx struct {

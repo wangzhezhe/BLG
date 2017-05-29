@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/BLG/Components/Factory/factorypattern/storagetype"
+	"github.com/wangzhezhe/BLG/Components/Factory/factorypattern/storagetype"
 )
 
 type StorageDriverFactory interface {
