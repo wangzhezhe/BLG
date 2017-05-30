@@ -3,9 +3,9 @@ package factorypattern
 import (
 	"testing"
 
-	"github.com/BLG/Components/Factory/factorypattern/influx"
-	"github.com/BLG/Components/Factory/factorypattern/mysql"
-	"github.com/BLG/Components/Factory/factorypattern/redis"
+	"github.com/wangzhezhe/BLG/Components/Factory/factorypattern/influx"
+	"github.com/wangzhezhe/BLG/Components/Factory/factorypattern/mysql"
+	"github.com/wangzhezhe/BLG/Components/Factory/factorypattern/redis"
 )
 
 func TestRegisterandCreate(t *testing.T) {
@@ -20,6 +20,7 @@ func TestRegisterandCreate(t *testing.T) {
 		sdriver, err := Create(item)
 		if err != nil {
 			t.Error(err)
+			return
 		}
 		sdriver.List()
 	}
